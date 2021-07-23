@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PizzApp.Views.LoginPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40" VerticalOptions="Center" >
+                <Frame BackgroundColor="#2196F3" Padding="10" CornerRadius="0">
+            <Label Text="PizzApp!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+                    <StackLayout Orientation="Vertical" Spacing="10">  
+                        <Entry x:Name="Username" Placeholder="Username"   
+                               HeightRequest="40"   
+                               Keyboard="Email"/>  
+                        <Entry x:Name="Password" Placeholder="Password"   
+                               HeightRequest="40"   
+                               IsPassword="True"/>
+                    </StackLayout>  
+                <Button Clicked="Button_Clicked" Text="Login" />  
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>  
+</ContentPage>
