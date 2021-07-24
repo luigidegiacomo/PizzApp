@@ -56,11 +56,7 @@ namespace PizzApp.Views
 
             });
 
-            if(ListaPizze.ItemsSource==null)
-            {
-                MessagingCenter.Send("MESSAGGIO", "CaricaPizze");
-
-            }
+            MessagingCenter.Send("MESSAGGIO", "CaricaPizze");            
 
             base.OnAppearing();
         }
@@ -77,6 +73,11 @@ namespace PizzApp.Views
                 NPizze = "Numero Pizze: " + listaPizze.ToList().Sum(ro => ro.Quantita);
                 OnPropertyChanged(nameof(NPizze));
             }
+        }
+
+        async void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new DettaglioOrdinePage(Partition, Ordine));
         }
     }
 }

@@ -19,6 +19,8 @@ namespace PizzApp.Models
 
         public Utente Utente { get; set; }
 
+        public bool Confermato { get; set; }
+
         public bool Chiuso { get; set; }
 
     }

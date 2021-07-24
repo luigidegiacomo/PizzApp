@@ -86,6 +86,7 @@ namespace PizzApp.Services
                         Utente = utente,
                         Pizzeria = pizzeria,
                         Data = DateTime.Now,
+                        Confermato = false,
                         Chiuso = false
                     };
                     Realm.Add(ordine);
@@ -99,6 +100,90 @@ namespace PizzApp.Services
 
             return ordine;
 
+        }
+
+        internal static void ComfermaOrdine(Ordine ordine)
+        {
+            var trans = Realm.BeginWrite();
+            try
+            {
+
+                ordine.Confermato = true; 
+
+                trans.Commit();
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+            }
+        }
+
+        internal static void EliminaOrdine(Ordine ordine)
+        {
+            var trans = Realm.BeginWrite();
+            try
+            {
+
+                var lista = Realm.All<RigaOrdine>().Where(ro => ro.Ordine == ordine);
+
+                Realm.RemoveRange<RigaOrdine>(lista);
+
+                Realm.Remove(ordine);
+
+                trans.Commit();
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+            }
+        }
+
+        internal static void EliminaRigaOrdine(RigaOrdine rigaOrdine)
+        {
+            var trans = Realm.BeginWrite();
+            try
+            {
+
+                Realm.Remove(rigaOrdine);
+
+                trans.Commit();
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+            }
+        }
+
+        internal static void AggiungiPizzaInRigaOrdine(RigaOrdine rigaOrdine)
+        {
+            var trans = Realm.BeginWrite();
+            try
+            {
+                rigaOrdine.Quantita++;
+
+                trans.Commit();
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+            }
+        }
+
+        internal static void EliminaPizzaInRigaOrdine(RigaOrdine rigaOrdine)
+        {
+            var trans = Realm.BeginWrite();
+            try
+            {
+                rigaOrdine.Quantita--;
+
+                if (rigaOrdine.Quantita == 0) Realm.Remove(rigaOrdine);
+
+                trans.Commit();
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+            }
         }
 
         internal static IEnumerable<RigaOrdine> AggiungiPizzaInOrdine(Ordine ordine, Pizza pizza)
