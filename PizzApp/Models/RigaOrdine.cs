@@ -21,7 +21,7 @@ namespace PizzApp.Models
 
         public double Prezzo { get { return Pizza.Prezzo * Quantita; ; } }
 
-        public string PrezzoEuro { get { return String.Format("{0:C}", Prezzo); } }
+        public string PrezzoEuro { get { return Prezzo.ToString("€ #.#0"); } }
 
         //Gestione override per APP
         protected override void OnPropertyChanged(string propertyName)

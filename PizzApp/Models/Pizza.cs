@@ -23,7 +23,8 @@ namespace PizzApp.Models
         {
             get
             {
-                return String.Format("{0:C}",Prezzo);
+                return Prezzo.ToString("€ #.#0");
+
             }
         }
 
