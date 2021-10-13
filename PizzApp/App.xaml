@@ -4,11 +4,11 @@
              x:Class="PizzApp.App">
     <Application.Resources>
          <ResourceDictionary>
-            <Color x:Key="mRed">#6e2ef9</Color>
+            <Color x:Key="mGreen">#008996</Color>
             <Color x:Key="mWhite">white</Color>
 
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor"  Value="{ StaticResource mRed}"/>
+                <Setter Property="BarBackgroundColor"  Value="{ StaticResource mGreen}"/>
                 <Setter Property="BarTextColor"  Value="{ StaticResource mWhite}"/>
             </Style>
         </ResourceDictionary>
