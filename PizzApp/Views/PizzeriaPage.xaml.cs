@@ -25,9 +25,8 @@ namespace PizzApp.Views
         {
             MessagingCenter.Subscribe<string>(this, "CaricaPizzerie", async (item) =>
             {
-                bool ok = await RealmDataStore.Connect(Settings.PUBLIC_PARTITION);
 
-                var lista = RealmDataStore.ListaPizzerie();
+                var lista = await RealmDataStore.ListaPizzerie();
 
                 ListaPizzerie.ItemsSource = lista;
 

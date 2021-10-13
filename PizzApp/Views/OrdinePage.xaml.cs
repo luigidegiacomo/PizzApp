@@ -34,21 +34,19 @@ namespace PizzApp.Views
         {
             MessagingCenter.Subscribe<string>(this, "CaricaPizze", async (item) =>
             {
-                bool ok = await RealmDataStore.Connect(Partition);
-
-                Pizzeria = RealmDataStore.Pizzeria(Partition);
+                Pizzeria = await RealmDataStore.Pizzeria(Partition);
 
                 Title = Pizzeria.Nome;
 
-                var lista = RealmDataStore.ListaPizze();
+                var lista = await RealmDataStore.ListaPizze(Partition);
 
                 ListaPizze.ItemsSource = lista;
 
                 //Verifico se esiste un'ordine aperto di questo utente in questa pizzeria
 
-                Ordine =  RealmDataStore.CercaCreaOrdine(App.Username, Pizzeria);
+                Ordine =  await RealmDataStore.CercaCreaOrdine(Partition,App.Username, Pizzeria);
 
-                var listaPizze = RealmDataStore.ListaPizzeOrdine(Ordine);
+                var listaPizze = await RealmDataStore.ListaPizzeOrdine(Partition,Ordine);
 
                 NPizze = "Numero Pizze: " + listaPizze.ToList().Sum(ro => ro.Quantita);
 
@@ -69,7 +67,7 @@ namespace PizzApp.Views
             string risposta = await DisplayActionSheet(titolo, "No", null, msg);
             if (risposta == msg[0])
             {
-                var listaPizze = RealmDataStore.AggiungiPizzaInOrdine(Ordine, pizza);
+                var listaPizze = await RealmDataStore.AggiungiPizzaInOrdine(Partition,Ordine, pizza);
                 NPizze = "Numero Pizze: " + listaPizze.ToList().Sum(ro => ro.Quantita);
                 OnPropertyChanged(nameof(NPizze));
             }

@@ -43,9 +43,7 @@ namespace PizzApp.Views
         {
             MessagingCenter.Subscribe<string>(this, "CaricaPizze", async (item) =>
             {
-                bool ok = await RealmDataStore.Connect(Partition);
-
-                ListaPizzeOrdine = RealmDataStore.ListaPizzeOrdine(Ordine);
+                ListaPizzeOrdine = await RealmDataStore.ListaPizzeOrdine(Partition,Ordine);
 
                 ListaPizze.ItemsSource = ListaPizzeOrdine;
 
@@ -71,32 +69,32 @@ namespace PizzApp.Views
             string risposta = await DisplayActionSheet("Modifica Ordine", "Annulla", msg3, msg);
             if (risposta == msg1)
             {
-                RealmDataStore.AggiungiPizzaInRigaOrdine(rigaOrdine);               
+                await RealmDataStore.AggiungiPizzaInRigaOrdine(Partition,rigaOrdine);               
             }
             if (risposta == msg2)
             {
-                RealmDataStore.EliminaPizzaInRigaOrdine(rigaOrdine);
+                await RealmDataStore.EliminaPizzaInRigaOrdine(Partition,rigaOrdine);
             }
             if (risposta == msg3)
             {
-                RealmDataStore.EliminaRigaOrdine(rigaOrdine);
+                await RealmDataStore.EliminaRigaOrdine(Partition, rigaOrdine);
             }
             
             NPizze = "Numero Pizze: " + ListaPizzeOrdine.ToList().Sum(ro => ro.Quantita);
-            Totale = "Totale: " + String.Format("{0:C}", ListaPizzeOrdine.ToList().Sum(ro => ro.Prezzo));
+            Totale = "Totale: " +  ListaPizzeOrdine.ToList().Sum(ro => ro.Prezzo).ToString("€ #.#0");
             OnPropertyChanged(nameof(NPizze));
             OnPropertyChanged(nameof(Totale));
         }
 
         async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            RealmDataStore.ComfermaOrdine(Ordine);
+            await RealmDataStore.ConfermaOrdine(Partition, Ordine);
             await Navigation.PopAsync();
         }
 
         async void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
         {
-            RealmDataStore.EliminaOrdine(Ordine);
+            await RealmDataStore.EliminaOrdine(Partition, Ordine);
             await Navigation.PopAsync();
         }
     }

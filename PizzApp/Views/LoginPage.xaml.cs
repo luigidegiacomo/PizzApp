@@ -23,17 +23,10 @@ namespace PizzApp.Views
                 await DisplayAlert("Errore", "Credenziali non valide", "Ok");
                 return;
             }
-
-            bool ok = await RealmDataStore.Connect(Settings.PUBLIC_PARTITION);
-
-            if(!ok) {
-                await DisplayAlert("Errore", "Errore di connessione","Ok");
-                return;
-            }
-
+                      
             try
             {
-                ok = RealmDataStore.Login(Username.Text.ToLower(), Password.Text);
+                bool ok = await RealmDataStore.Login(Username.Text.ToLower(), Password.Text);
 
                 if (!ok)
                 {

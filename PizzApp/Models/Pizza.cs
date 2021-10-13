@@ -1,4 +1,5 @@
 ﻿ using System;
+using PizzApp.Utils;
 using Realms;
 
 namespace PizzApp.Models
@@ -25,6 +26,15 @@ namespace PizzApp.Models
             {
                 return Prezzo.ToString("€ #.#0");
 
+            }
+        }
+
+        public string PathImg
+        {
+            get
+            {
+                int idx = Math.Abs(ID.GetHashCode()) % 4;
+                return Settings.IMG_PATH[idx];
             }
         }
 

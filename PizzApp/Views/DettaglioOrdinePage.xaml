@@ -32,23 +32,24 @@
                     <ViewCell>                    
                       <Grid RowSpacing="0" Margin="0" Padding="10" >
                         <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                       </Grid.RowDefinitions>
-                      <Grid.ColumnDefinitions>                       
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="0.3*" />
                       </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="0" FontSize="16" LineBreakMode="TailTruncation" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Pizza.Nome}" />
+                            <Label Grid.Row="0" Grid.Column="1" FontSize="16" LineBreakMode="TailTruncation" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Pizza.Nome}" />
 
-                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="13" TextColor="Gray"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding Quantita}" />
+                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontSize="13" TextColor="Gray"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding Quantita}" />
 
-                            <Label Grid.Row="0" Grid.Column="1" FontSize="14" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding Pizza.PrezzoEuro}" />
+                            <Label Grid.Row="0" Grid.Column="2" FontSize="14" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding Pizza.PrezzoEuro}" />
 
-                            <Label Grid.Row="1" Grid.Column="1" FontSize="14" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding PrezzoEuro}" />
+                            <Label Grid.Row="1" Grid.Column="2" FontSize="14" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding PrezzoEuro}" />
 
+                            <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Start" WidthRequest="100" Source="{Binding Pizza.PathImg}" />
 
                       </Grid>
                     </ViewCell>

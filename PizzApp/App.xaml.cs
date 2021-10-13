@@ -1,4 +1,5 @@
 ﻿using System;
+using PizzApp.Services;
 using PizzApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,9 +14,11 @@ namespace PizzApp
 
         public App()
         {
-            InitializeComponent(); 
+            InitializeComponent();
 
-            MainPage=new LoginPage();
+            RealmDataStore.SetApp(true);
+
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
