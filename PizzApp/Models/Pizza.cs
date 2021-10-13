@@ -12,7 +12,7 @@ namespace PizzApp.Models
 
         [PrimaryKey]
         [MapTo("_id")]
-        public string ID { get; set; } = Guid.NewGuid().ToString();
+        public string ID { get; set; } 
 
         public string Nome { get; set; }
 

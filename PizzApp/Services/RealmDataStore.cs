@@ -30,8 +30,8 @@ namespace PizzApp.Services
                 var app = Realms.Sync.App.Create(new AppConfiguration(Settings.MongoDbRealmAppId));
                 var user = await app.LogInAsync(Credentials.Anonymous());
                 var config = new SyncConfiguration(partition, user);
-                var realm = Realm.GetInstance(config);
-                //realm.Refresh();
+                var realm = await Realm.GetInstanceAsync(config);
+                realm.Refresh();
                 Partition = partition;
                 Realm = realm;
                 Console.WriteLine(config.DatabasePath);
@@ -286,7 +286,7 @@ namespace PizzApp.Services
         {
             var realm = await Connect(Settings.PUBLIC_PARTITION);
 
-            var lista = realm.All<Pizzeria>().OrderBy(p => p.Nome);
+            var lista = realm.All<Pizzeria>().OrderBy(p => p.Partition);
             return lista;
         }
 

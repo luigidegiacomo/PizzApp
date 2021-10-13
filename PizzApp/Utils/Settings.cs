@@ -13,7 +13,7 @@ namespace PizzApp.Utils
             "https://dl.dropboxusercontent.com/s/ywbmlnnik0froap/2.png?dl=0",
             "https://dl.dropboxusercontent.com/s/mj0so4s89jgw7sm/3.png?dl=0",
             "https://dl.dropboxusercontent.com/s/j9d4fak3n0xkpkp/4.png?dl=0"
-        };
+        };        
     }
 
 }

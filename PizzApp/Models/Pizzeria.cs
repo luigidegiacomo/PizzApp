@@ -1,4 +1,5 @@
 ﻿ using System;
+using PizzApp.Utils;
 using Realms;
 
 namespace PizzApp.Models
@@ -15,6 +16,8 @@ namespace PizzApp.Models
 
         public string Nome { get; set; }
         public string Indirizzo { get; set; }
+
+        public string PathImg { get; set; }       
 
     }
 }
