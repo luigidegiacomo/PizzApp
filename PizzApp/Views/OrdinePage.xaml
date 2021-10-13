@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PizzApp.Views.OrdinePage"
+             x:Class="PizzApp.Views.OrdinePage" Background="#002856"
              >
     <StackLayout>       
-        <Label Text="Componi il tuo ordine!" FontSize="Title" Padding="30,10,30,10"/>
+        <Label Text="Componi il tuo ordine!" TextColor="White" FontSize="Title" Padding="30,10,30,10"/>
 
            <Grid RowSpacing="0" Margin="0" Padding="10" >
             <Grid.RowDefinitions>
@@ -16,13 +16,13 @@
             <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" FontSize="14"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding NPizze}" />
+                <Label TextColor="white" Grid.Row="0" Grid.Column="0" FontSize="14"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding NPizze}" />
 
                 <Button Grid.Row="0" Grid.Column="1" FontSize="14" HorizontalOptions="End" VerticalOptions="Center" Text="Dettagli Ordine"  Clicked="Button_Clicked" />
 
             </Grid>
 
-        <ListView x:Name="ListaPizze" HasUnevenRows="True" SelectedItem="{Binding .}" ItemTapped="ListaPizze_ItemTapped"  >
+        <ListView x:Name="ListaPizze" Background="#002856" HasUnevenRows="True" SelectedItem="{Binding .}" ItemTapped="ListaPizze_ItemTapped"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>                    
@@ -37,11 +37,11 @@
                         <ColumnDefinition Width="0.3*" />
                       </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="1" FontSize="16" LineBreakMode="TailTruncation" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Nome}" />
+                            <Label Grid.Row="0" Grid.Column="1" FontSize="16" TextColor="White" LineBreakMode="TailTruncation" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Nome}" />
 
                             <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontSize="13" TextColor="Gray"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding Ingredienti}" />
 
-                            <Label Grid.Row="0" Grid.Column="2" FontSize="14" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding PrezzoEuro}" />
+                            <Label Grid.Row="0" Grid.Column="2" FontSize="14" TextColor="White" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding PrezzoEuro}" />
 
                             <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Start" WidthRequest="100" Source="{Binding PathImg}" />
                       </Grid>

@@ -71,6 +71,8 @@ namespace PizzApp.Views
                 NPizze = "Numero Pizze: " + listaPizze.ToList().Sum(ro => ro.Quantita);
                 OnPropertyChanged(nameof(NPizze));
             }
+            ListaPizze.SelectedItem = null;
+
         }
 
         async void Button_Clicked(System.Object sender, System.EventArgs e)

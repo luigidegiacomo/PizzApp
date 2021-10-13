@@ -42,8 +42,9 @@ namespace PizzApp.Views
         }
 
         async void ListaPizzerie_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
-        {
+        {            
             await Navigation.PushAsync(new OrdinePage((e.Item as Pizzeria).ID));
+            ListaPizzerie.SelectedItem = null;
         }
 
         void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)

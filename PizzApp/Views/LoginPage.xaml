@@ -2,13 +2,11 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="PizzApp.Views.LoginPage">
+    x:Class="PizzApp.Views.LoginPage" Background="#002856">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Padding="30" Spacing="40" VerticalOptions="Center" >
-                <Frame Padding="10" CornerRadius="0">
-            <Label Text="PizzApp!" HorizontalTextAlignment="Center" FontSize="36"/>
-        </Frame>
+               <Label Text="PizzApp!" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="White" FontSize="36"/>
                     <StackLayout Orientation="Vertical" Spacing="10">  
                         <Entry x:Name="Username" Placeholder="Username"   
                                HeightRequest="40"   
@@ -17,7 +15,8 @@
                                HeightRequest="40"   
                                IsPassword="True"/>
                     </StackLayout>  
-                <Button Clicked="Button_Clicked" Text="Login" />  
+                <Button Clicked="Button_Clicked" Text="Login" />
+                <Image Source="pizzapp" WidthRequest="200" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>  

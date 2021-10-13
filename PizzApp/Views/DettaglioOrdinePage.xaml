@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzApp.Views.DettaglioOrdinePage"
-             Title="Dettaglio Ordine"
+             Title="Dettaglio Ordine" Background="#002856"
              >
     <ContentPage.ToolbarItems>
                 <ToolbarItem Text="Elimina" Clicked="ToolbarItem_Clicked"
-                 Order="Primary"
+                 Order="Primary" 
                  Priority="0" />
 </ContentPage.ToolbarItems>
     <StackLayout>
@@ -20,13 +20,13 @@
             <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" FontSize="14"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding NPizze}" />
-                <Label Grid.Row="1" Grid.Column="0" FontSize="14"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding Totale}" />
+                <Label TextColor="white" Grid.Row="0" Grid.Column="0" FontSize="14"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding NPizze}" />
+                <Label TextColor="white" Grid.Row="1" Grid.Column="0" FontSize="14"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding Totale}" />
 
                 <Button Grid.Row="0" Grid.Column="1" FontSize="14" HorizontalOptions="End" VerticalOptions="Center" Text="Conferma Ordine"  Clicked="Button_Clicked" />
 
             </Grid>
-        <ListView x:Name="ListaPizze" HasUnevenRows="True" SelectedItem="{Binding .}" ItemTapped="ListaPizze_ItemTapped"  >
+        <ListView x:Name="ListaPizze" Background="#002856" HasUnevenRows="True" SelectedItem="{Binding .}" ItemTapped="ListaPizze_ItemTapped"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>                    
@@ -41,13 +41,13 @@
                         <ColumnDefinition Width="0.3*" />
                       </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="1" FontSize="16" LineBreakMode="TailTruncation" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Pizza.Nome}" />
+                            <Label Grid.Row="0" Grid.Column="1" TextColor="white" FontSize="16" LineBreakMode="TailTruncation" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Pizza.Nome}" />
 
                             <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontSize="13" TextColor="Gray"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding Quantita}" />
 
-                            <Label Grid.Row="0" Grid.Column="2" FontSize="14" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding Pizza.PrezzoEuro}" />
+                            <Label Grid.Row="0" Grid.Column="2" TextColor="white" FontSize="14" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding Pizza.PrezzoEuro}" />
 
-                            <Label Grid.Row="1" Grid.Column="2" FontSize="14" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding PrezzoEuro}" />
+                            <Label Grid.Row="1" Grid.Column="2" TextColor="white" FontSize="14" LineBreakMode="TailTruncation" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding PrezzoEuro}" />
 
                             <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Start" WidthRequest="100" Source="{Binding Pizza.PathImg}" />
 

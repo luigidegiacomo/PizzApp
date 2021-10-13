@@ -3,6 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzApp.App">
     <Application.Resources>
+         <ResourceDictionary>
+            <Color x:Key="mRed">#6e2ef9</Color>
+            <Color x:Key="mWhite">white</Color>
 
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"  Value="{ StaticResource mRed}"/>
+                <Setter Property="BarTextColor"  Value="{ StaticResource mWhite}"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

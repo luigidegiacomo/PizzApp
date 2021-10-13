@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PizzApp.Views.PizzeriaPage"
+             x:Class="PizzApp.Views.PizzeriaPage" Background="#002856"
              Title="PizzApp">
     <ContentPage.ToolbarItems>
                 <ToolbarItem Text="Logout" Clicked="ToolbarItem_Clicked"
@@ -10,8 +10,8 @@
 </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <Label Text="Scegli la tua pizzeria!" FontSize="Title" Padding="30,10,30,10"/>
-        <ListView x:Name="ListaPizzerie" HasUnevenRows="True" SelectedItem="{Binding .}" ItemTapped="ListaPizzerie_ItemTapped"  >
+        <Label Text="Scegli la tua pizzeria!" FontSize="Title" TextColor="White" Padding="30,10,30,10"/>
+        <ListView x:Name="ListaPizzerie" Background="#002856" HasUnevenRows="True" SelectedItem="{Binding .}" ItemTapped="ListaPizzerie_ItemTapped"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>                    
@@ -26,7 +26,7 @@
                         <ColumnDefinition Width="0.1*" />
                       </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="1" FontSize="16" LineBreakMode="TailTruncation" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Nome}" />
+                            <Label TextColor="White" Grid.Row="0" Grid.Column="1" FontSize="16" LineBreakMode="TailTruncation" HorizontalOptions="Start" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Nome}" />
 
                             <Label Grid.Row="1" Grid.Column="1" FontSize="13" TextColor="Gray"  LineBreakMode="TailTruncation"  HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding Indirizzo}" />
 
