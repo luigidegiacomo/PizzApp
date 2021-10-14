@@ -20,21 +20,14 @@ namespace PizzApp.Models
 
         public double Prezzo { get; set; }
 
+        public string PathImg { get; set; } 
+
         public string PrezzoEuro
         {
             get
             {
                 return Prezzo.ToString("€ #.#0");
 
-            }
-        }
-
-        public string PathImg
-        {
-            get
-            {
-                int idx = Math.Abs(ID.GetHashCode()) % 4;
-                return Settings.IMG_PATH[idx];
             }
         }
 
