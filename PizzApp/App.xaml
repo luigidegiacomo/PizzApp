@@ -11,6 +11,10 @@
                 <Setter Property="BarBackgroundColor"  Value="{ StaticResource mGreen}"/>
                 <Setter Property="BarTextColor"  Value="{ StaticResource mWhite}"/>
             </Style>
+             <Style TargetType="Button">
+                <Setter Property="BackgroundColor"  Value="Transparent"/>
+                <Setter Property="BorderColor"  Value="Transparent"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
